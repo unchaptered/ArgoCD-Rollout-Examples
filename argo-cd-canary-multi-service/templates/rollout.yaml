@@ -35,3 +35,11 @@ spec:
       - pause:
           duration: 30s
       - setWeight: 100
+      # Ephemeral Metadata to capture by Prometheus, Wavefront, DataDog
+      # https://argo-rollouts.readthedocs.io/en/stable/features/ephemeral-metadata/
+      stableMetadata:
+        labels:
+          role: stable
+      canaryMetadata:
+        labels:
+          role: canary

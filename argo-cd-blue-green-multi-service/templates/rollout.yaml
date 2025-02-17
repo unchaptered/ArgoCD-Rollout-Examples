@@ -28,3 +28,11 @@ spec:
       activeService: argocd-rollout-blue-green-activate
       previewService: argocd-rollout-blue-green-prview
       autoPromotionEnabled: false
+      # Ephemeral Metadata to capture by Prometheus, Wavefront, DataDog
+      # https://argo-rollouts.readthedocs.io/en/stable/features/ephemeral-metadata/
+      activeMetadata:
+        labels:
+          role: active
+      previewMetadata:
+        labels:
+          role: preview

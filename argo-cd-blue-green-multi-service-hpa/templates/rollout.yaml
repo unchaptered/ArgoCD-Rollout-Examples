@@ -33,3 +33,11 @@ spec:
       activeService: blue-green-hpa-activate
       previewService: blue-green-hpa-prview
       autoPromotionEnabled: false
+      # Ephemeral Metadata to capture by Prometheus, Wavefront, DataDog
+      # https://argo-rollouts.readthedocs.io/en/stable/features/ephemeral-metadata/
+      activeMetadata:
+        labels:
+          role: active
+      previewMetadata:
+        labels:
+          role: preview
