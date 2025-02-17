@@ -1,6 +1,6 @@
 ---
-apiVersion: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: argocd-rollout-example-prview
 spec:

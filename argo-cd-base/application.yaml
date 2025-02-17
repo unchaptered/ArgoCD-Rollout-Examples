@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: argocd-rollout-example
-  namespace: default
+  namespace: argo-cd
 spec:
   project: argocd-rollout-example
   source:
