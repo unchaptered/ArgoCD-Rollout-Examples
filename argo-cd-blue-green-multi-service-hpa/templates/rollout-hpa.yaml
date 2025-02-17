@@ -1,0 +1,13 @@
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: argocd-rollout-blue-green
+spec:
+  maxReplicas: 5
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Rollout
+    name: argocd-rollout-blue-green
+  targetCPUUtilizationPercentage: 80

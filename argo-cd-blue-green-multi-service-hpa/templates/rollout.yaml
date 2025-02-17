@@ -1,0 +1,30 @@
+---
+apiVersion: argoproj.io/v1alpha1     
+kind: Rollout  # Deplyment 대신 Rollout을 사용한다
+metadata:
+  name: argocd-rollout-blue-green
+spec:
+  # application
+  replicas: 2
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: argocd-rollout-blue-green
+  template:
+    metadata:
+      labels:
+        app: argocd-rollout-blue-green
+    spec:
+      containers:
+      - name: argocd-rollout-blue-green-container
+        image: argoproj/rollouts-demo:blue
+        # image: argoproj/rollouts-demo:green
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+  # strategy
+  strategy:
+    blueGreen:
+      activeService: argocd-rollout-blue-green-activate
+      previewService: argocd-rollout-blue-green-prview
+      autoPromotionEnabled: false
