@@ -11,3 +11,7 @@ spec:
     kind: Rollout
     name: blue-green-hpa
   targetCPUUtilizationPercentage: 80
+
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 60
