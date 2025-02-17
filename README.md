@@ -86,5 +86,8 @@ kubectl argo rollouts version
 Argo CD, Argo Rollouts을 실습하기 전에 이 샘플 저장소를 사용하기 위한 Project, Application를 생성합니다.
 
 ```shell
-k apply -f argo-cd-base/*
+k apply -f argo-cd-base/.
+
+k delete -f argo-cd-base/.
+k create -f argo-cd-base/.
 ```
