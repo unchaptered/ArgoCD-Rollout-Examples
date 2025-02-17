@@ -9,10 +9,10 @@ spec:
   source:
     repoURL: https://github.com/unchaptered/ArgoCD-Rollout-Examples
     targetRevision: main
-    path: argo-cd-target
+    path: argo-cd-blue-green-multi-service
     helm:
       valueFiles:
-        - argo-cd-target/values.yaml
+        - argo-cd-blue-green-multi-service/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: default
