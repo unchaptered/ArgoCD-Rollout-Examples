@@ -1,0 +1,22 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-rollout-example
+  namespace: default
+spec:
+  project: argocd-rollout-example
+  source:
+    repoURL: https://github.com/unchaptered/ArgoCD-Rollout-Examples
+    targetRevision: main
+    path: argo-cd-target
+    helm:
+      valueFiles:
+        - argo-cd-target/values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -3,15 +3,14 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: argocd-rollout-example
-  namespace: argocd
+  namespace: argo-cd
 spec:
   description: "ArgoCD-Rollout-Examples"
   sourceRepos:
     - https://github.com/unchaptered/ArgoCD-Rollout-Examples
   destinations:
-    - namespace: default
-      server: https://kubernetes.default.svc
-    - namespace: dev
+    - name: in-cluster
+      namespace: default
       server: https://kubernetes.default.svc
   clusterResourceWhitelist:
     - group: '*'
@@ -19,4 +18,3 @@ spec:
   namespaceResourceWhitelist:
     - group: '*'
       kind: '*'
-      namespace: default

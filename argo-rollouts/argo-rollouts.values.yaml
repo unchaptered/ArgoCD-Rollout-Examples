@@ -1,0 +1,7 @@
+# Don't use this option
+# Use `kubectl argo rollouts dashboard`
+
+# dashboard:
+#   enabled: true
+#   service:
+#     type: ClusterIP
