@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: argocd-rollout-canary-activate
+spec:
+  selector:
+    app: argocd-rollout-canary
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+    nodePort: 30081
+  type: NodePort
