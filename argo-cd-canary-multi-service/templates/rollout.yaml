@@ -35,8 +35,3 @@ spec:
       - pause:
           duration: 30s
       - setWeight: 100
-  strategy:
-    blueGreen:
-      activeService: argocd-rollout-canary-activate
-      previewService: argocd-rollout-canary-prview
-      autoPromotionEnabled: false
