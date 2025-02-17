@@ -1,0 +1,17 @@
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: canary-hpa
+spec:
+  maxReplicas: 5
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Rollout
+    name: canary-hpa
+  targetCPUUtilizationPercentage: 80
+
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 60
