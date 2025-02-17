@@ -91,3 +91,6 @@ k apply -f argo-cd-base/.
 k delete -f argo-cd-base/.
 k create -f argo-cd-base/.
 ```
+
+## Get-Started
+
