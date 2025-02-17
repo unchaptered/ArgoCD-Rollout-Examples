@@ -1,0 +1,14 @@
+---
+apiVersion: Service
+apiVersion: v1
+metadata:
+  name: argocd-rollout-example-prview
+spec:
+  selector:
+    app: argocd-rollout-example
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+    nodePort: 30082
+  type: NodePort
