@@ -19,7 +19,18 @@
 
 이 문서에서는 Argo Rollouts를 사용한 몇 가지 예제들을 제공합니다.
 
+## Get-Started
+
+아래 명령어를 입력하면 자동으로 blue-green, canary 등의 실습 파일이 생성됩니다.
+
+```shell
+k apply -f argo-cd-base/.
+```
+
 ## Installation
+
+1. Argo CD
+2. Argo Rollouts
 
 ### Argo CD
 
@@ -80,17 +91,3 @@ brew install argoproj/tap/kubectl-argo-rollouts
 
 kubectl argo rollouts version
 ```
-
-## Configuration
-
-Argo CD, Argo Rollouts을 실습하기 전에 이 샘플 저장소를 사용하기 위한 Project, Application를 생성합니다.
-
-```shell
-k apply -f argo-cd-base/.
-
-k delete -f argo-cd-base/.
-k create -f argo-cd-base/.
-```
-
-## Get-Started
-
