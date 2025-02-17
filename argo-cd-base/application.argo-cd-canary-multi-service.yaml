@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-rollout-example
+  namespace: argo-cd
+spec:
+  project: argocd-rollout-example
+  source:
+    repoURL: https://github.com/unchaptered/ArgoCD-Rollout-Examples
+    targetRevision: main
+    path: argo-cd-blue-green-multi-service
+    helm:
+      valueFiles:
+        - argo-cd-blue-green-multi-service/values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argo-cd
+  syncPolicy:
+    automated: {}
