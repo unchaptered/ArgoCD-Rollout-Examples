@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-rollout-example
+  name: argocd-rollout-blue-green-multi-service
   namespace: argo-cd
 spec:
   project: argocd-rollout-example
@@ -12,7 +12,7 @@ spec:
     path: argo-cd-blue-green-multi-service
     helm:
       valueFiles:
-        - argo-cd-blue-green-multi-service/values.yaml
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: argo-cd
