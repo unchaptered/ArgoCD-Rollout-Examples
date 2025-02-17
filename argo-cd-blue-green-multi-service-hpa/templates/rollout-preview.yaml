@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: argocd-rollout-blue-green-prview
+  name: blue-green-hpa-prview
 spec:
   selector:
-    app: argocd-rollout-blue-green
+    app: blue-green-hpa
   ports:
   - protocol: TCP
     port: 80

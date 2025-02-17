@@ -2,21 +2,21 @@
 apiVersion: argoproj.io/v1alpha1     
 kind: Rollout  # Deplyment 대신 Rollout을 사용한다
 metadata:
-  name: argocd-rollout-blue-green
+  name: blue-green-hpa
 spec:
   # application
   replicas: 2
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: argocd-rollout-blue-green
+      app: blue-green-hpa
   template:
     metadata:
       labels:
-        app: argocd-rollout-blue-green
+        app: blue-green-hpa
     spec:
       containers:
-      - name: argocd-rollout-blue-green-container
+      - name: blue-green-hpa-container
         image: argoproj/rollouts-demo:blue
         # image: argoproj/rollouts-demo:green
         imagePullPolicy: Always
@@ -25,6 +25,6 @@ spec:
   # strategy
   strategy:
     blueGreen:
-      activeService: argocd-rollout-blue-green-activate
-      previewService: argocd-rollout-blue-green-prview
+      activeService: blue-green-hpa-activate
+      previewService: blue-green-hpa-prview
       autoPromotionEnabled: false
