@@ -19,6 +19,14 @@
 
 이 문서에서는 Argo Rollouts를 사용한 몇 가지 예제들을 제공합니다.
 
+## Version
+
+```shell
+kube-apiserver 1.30.9
+kube-let 1.30.4
+helm 3.14.0
+```
+
 ## Get-Started
 
 아래 명령어를 입력하면 자동으로 blue-green, canary 등의 실습 파일이 생성됩니다.
